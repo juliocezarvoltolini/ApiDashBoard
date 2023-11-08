@@ -1,0 +1,22 @@
+services:
+  # web:
+  #   build: .
+  #   ports:
+  #     - "8000:5000"
+  # redis:
+  #   image: "redis:alpine"
+  db:
+    image: postgres:12-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Via7216
+      - POSTGRES_DB=elias
+    ports:
+      - 5512:5432
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    networks:
+      - buyrev-network
+networks:
+  buyrev-network:
+    driver: bridge
